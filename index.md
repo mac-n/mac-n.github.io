@@ -4,7 +4,7 @@ Niamh McCombe
 
 January 2025
 
-![my email](myemail.png)
+![my email](/images/myemail.png)
 
 ## Abstract
 
@@ -134,9 +134,6 @@ Pattern usage evolved systematically during sequence processing, as shown in Fig
 Pattern correlation analysis (Figure 5) revealed largely independent pattern development, particularly in lower layers. The pattern usage distribution (Figures 6 and 7) showed clear clustering of activations, suggesting specialization of patterns for distinct sequence features.
 ![Figure 5](/images/Fig5.png)
 [Figure 5: Pattern correlations across layers, showing independence of learned patterns. Red indicates positive correlation, blue indicates negative correlation.]
-![Figure 6](/images/Fig6.png)
-![Figure 7](/images/Fig7.png)
-[Figures 6 and 7: Pattern usage by cluster for Layers 0 and 1, demonstrating specialized pattern activation for different input sequence types.]
 
 ### 3.3 Hierarchical Extension Results
 
@@ -144,13 +141,13 @@ The hierarchical variant of the PPN architecture showed a dramatically different
 
 However, this architectural modification severely impacted performance on the Lorenz data (mean loss 5.725, SD = 1.118) compared to both the standard network (mean loss 0.021, SD = 0.004; t = -10.207, p < 0.00001) and the base PPN. Language modeling showed no significant improvement (mean loss 3.661, SD = 0.649 vs 3.240, SD = 0.339; t = -1.150, p = 0.283).
 
-For language data specifically, pattern activations at word boundaries (Figure 8) and character-pattern associations (Figure 9) revealed limited structural organization, suggesting the current architecture may be suboptimal for discrete symbolic sequences.
+For language data specifically, pattern activations at word boundaries (Figure 6) and character-pattern associations (Figure 7) revealed limited structural organization, suggesting the current architecture may be suboptimal for discrete symbolic sequences.
 
-![Figure 8](/images/Fig8.png)
-[Figure 8: Layer 0 pattern activation at word boundaries, showing limited differentiation between boundary and non-boundary positions.]
+![Figure 6](/images/Fig8.png)
+[Figure 6: Layer 0 pattern activation at word boundaries, showing limited differentiation between boundary and non-boundary positions.]
 
-![Figure 9](/images/Fig9.png)
-[Figure 9: Layer 0 pattern-character associations, demonstrating weak specialization for specific character types.]
+![Figure 7](/images/Fig9.png)
+[Figure 7: Layer 0 pattern-character associations, demonstrating weak specialization for specific character types.]
 
 ## 4. Discussion
 
