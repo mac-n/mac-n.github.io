@@ -1,5 +1,8 @@
 # Training-Transparent Neural Networks with Learned Interpretable Features
 
+Niamh McCombe
+January 2025
+
 ## Abstract
 
 This paper introduces a neural network architecture that maintains interpretability during training while achieving competitive or superior performance on specific sequential prediction tasks. The Pattern Predictive Network (PPN) uses learned pattern dictionaries and prediction-error based routing to create transparent information flow throughout the network. In tests against standard neural architectures, the base PPN achieved a 76% reduction in prediction error on chaotic sequence data while maintaining interpretable internal representations. A hierarchical variant demonstrated a 32% improvement on pattern memory tasks, though with performance trade-offs that were clearly observable through the architecture's inherent transparency. These results suggest that the traditional trade-off between neural network performance and interpretability may not be fundamental, and demonstrate the feasibility of designing neural networks that are transparent by construction rather than requiring post-hoc interpretation methods.
