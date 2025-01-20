@@ -8,7 +8,7 @@ January 2025
 
 ## Abstract
 
-This paper introduces a neural network architecture that maintains interpretability during training while achieving competitive or superior performance on specific sequential prediction tasks. The Pattern Predictive Network (PPN) uses learned pattern dictionaries and prediction-error based routing to create transparent information flow throughout the network. In tests against standard neural architectures, the base PPN achieved a 76% reduction in prediction error on chaotic sequence data while maintaining interpretable internal representations. A hierarchical variant demonstrated a 32% improvement on pattern memory tasks, though with performance trade-offs that were clearly observable through the architecture's inherent transparency. These results suggest that the traditional trade-off between neural network performance and interpretability may not be fundamental, and demonstrate the feasibility of designing neural networks that are transparent by construction rather than requiring post-hoc interpretation methods.
+This paper introduces a neural network architecture that maintains interpretability during training while achieving competitive or superior performance on specific sequential prediction tasks. The Pattern Predictive Network (PPN) uses learned pattern dictionaries and prediction-error based routing to create transparent information flow throughout the network. In tests against standard neural architectures, the base PPN achieved a 76% reduction in prediction error on chaotic sequence data while maintaining interpretable internal representations. A hierarchical variant demonstrated a 32% improvement on pattern memory tasks, though with performance trade-offs on other data types. These results suggest that the traditional trade-off between neural network performance and interpretability may not be fundamental, and demonstrate the feasibility of designing neural networks that are transparent by construction rather than requiring post-hoc interpretation methods.
 
 ## 1. Introduction
 
@@ -167,6 +167,7 @@ The results suggest that the traditional trade-off between neural network perfor
 
 1. Python Software Foundation. Python Language Reference, version 3.10.16. Available at http://www.python.org
 2. Anthropic. Claude 3.5 Sonnet (October 2024).
+3. (references section tbd)
 
 ## Code Availability
 Implementation code and examples are available at: https://github.com/mac-n/predictiveprocessing_nn
