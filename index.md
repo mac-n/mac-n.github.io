@@ -1,5 +1,1 @@
-Here you can say lots of fun things about your site.
-
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+Blog currently consists of documentation for one project, a neural network architecture based on predictive coding theory, which is transparent at training time and demonstrates performance improvements over standard neural network architecture for multiple types of data. Only tested on toy projects so far! 
