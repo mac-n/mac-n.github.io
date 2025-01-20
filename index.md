@@ -1,7 +1,10 @@
 # Training-Transparent Neural Networks with Learned Interpretable Features
 
 Niamh McCombe
+
 January 2025
+
+![my email](myemail.png)
 
 ## Abstract
 
