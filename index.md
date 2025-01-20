@@ -114,21 +114,22 @@ For pattern memory sequences, the base PPN showed marginal improvement (mean los
 ### 3.2 Pattern Analysis
 
 The transparency of the architecture enabled detailed analysis of pattern formation and usage. Figures 1 and 2 show pattern projections onto the Lorenz attractor for layers 0 and 1 respectively. Different patterns became selectively responsive to specific regions of the attractor's state space, demonstrating specialized feature detection.
-
+![Figure 1](/images/Fig1.png)
 [Figure 1: Layer 0 pattern projections onto the Lorenz attractor. Each subplot shows the activation strength of a different learned pattern across the attractor's state space, demonstrating specialization to different dynamical regions.]
-
+![Figure 2](/images/Fig2.png)
 [Figure 2: Layer 1 pattern projections onto the Lorenz attractor, showing higher-level pattern specialization. Note the different activation distributions compared to Layer 0, suggesting hierarchical feature extraction.]
 
 Pattern usage evolved systematically during sequence processing, as shown in Figures 3 and 4. These visualizations demonstrate dynamic transitions in pattern activation corresponding to different phases of the input sequences.
-
+![Figure 3](/images/Fig3.png)
 [Figure 3: Pattern usage evolution and information flow in Layer 0. Upper panel shows pattern activation over time; lower panel shows routing decisions between direct output contribution and continued processing.]
-
+![Figure 4](/images/Fig4.png)
 [Figure 4: Pattern usage evolution and information flow in Layer 1, demonstrating different pattern specialization and routing dynamics compared to Layer 0.]
 
 Pattern correlation analysis (Figure 5) revealed largely independent pattern development, particularly in lower layers. The pattern usage distribution (Figures 6 and 7) showed clear clustering of activations, suggesting specialization of patterns for distinct sequence features.
-
+![Figure 5](/images/Fig5.png)
 [Figure 5: Pattern correlations across layers, showing independence of learned patterns. Red indicates positive correlation, blue indicates negative correlation.]
-
+![Figure 6](/images/Fig6.png)
+![Figure 7](/images/Fig7.png)
 [Figures 6 and 7: Pattern usage by cluster for Layers 0 and 1, demonstrating specialized pattern activation for different input sequence types.]
 
 ### 3.3 Hierarchical Extension Results
@@ -137,11 +138,13 @@ The hierarchical variant of the PPN architecture showed a dramatically different
 
 However, this architectural modification severely impacted performance on the Lorenz data (mean loss 5.725, SD = 1.118) compared to both the standard network (mean loss 0.021, SD = 0.004; t = -10.207, p < 0.00001) and the base PPN. Language modeling showed no significant improvement (mean loss 3.661, SD = 0.649 vs 3.240, SD = 0.339; t = -1.150, p = 0.283).
 
-For language data specifically, pattern activations at word boundaries (Figure 10) and character-pattern associations (Figure 11) revealed limited structural organization, suggesting the current architecture may be suboptimal for discrete symbolic sequences.
+For language data specifically, pattern activations at word boundaries (Figure 8) and character-pattern associations (Figure 9) revealed limited structural organization, suggesting the current architecture may be suboptimal for discrete symbolic sequences.
 
-[Figure 10: Layer 0 pattern activation at word boundaries, showing limited differentiation between boundary and non-boundary positions.]
+![Figure 8](/images/Fig8.png)
+[Figure 8: Layer 0 pattern activation at word boundaries, showing limited differentiation between boundary and non-boundary positions.]
 
-[Figure 11: Layer 0 pattern-character associations, demonstrating weak specialization for specific character types.]
+![Figure 9](/images/Fig9.png)
+[Figure 9: Layer 0 pattern-character associations, demonstrating weak specialization for specific character types.]
 
 ## 4. Discussion
 
