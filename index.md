@@ -120,18 +120,23 @@ For pattern memory sequences, the base PPN showed marginal improvement (mean los
 ### 3.2 Pattern Analysis
 
 The transparency of the architecture enabled detailed analysis of pattern formation and usage. Figures 1 and 2 show pattern projections onto the Lorenz attractor for layers 0 and 1 respectively. Different patterns became selectively responsive to specific regions of the attractor's state space, demonstrating specialized feature detection.
+
 ![Figure 1](/images/Fig1.png)
 [Figure 1: Layer 0 pattern projections onto the Lorenz attractor. Each subplot shows the activation strength of a different learned pattern across the attractor's state space, demonstrating specialization to different dynamical regions.]
+
 ![Figure 2](/images/Fig2.png)
 [Figure 2: Layer 1 pattern projections onto the Lorenz attractor, showing higher-level pattern specialization. Note the different activation distributions compared to Layer 0, suggesting hierarchical feature extraction.]
 
 Pattern usage evolved systematically during sequence processing, as shown in Figures 3 and 4. These visualizations demonstrate dynamic transitions in pattern activation corresponding to different phases of the input sequences.
+
 ![Figure 3](/images/Fig3.png)
 [Figure 3: Pattern usage evolution and information flow in Layer 0. Upper panel shows pattern activation over time; lower panel shows routing decisions between direct output contribution and continued processing.]
+
 ![Figure 4](/images/Fig4.png)
 [Figure 4: Pattern usage evolution and information flow in Layer 1, demonstrating different pattern specialization and routing dynamics compared to Layer 0.]
 
 Pattern correlation analysis (Figure 5) revealed largely independent pattern development, particularly in lower layers. The pattern usage distribution (Figures 6 and 7) showed clear clustering of activations, suggesting specialization of patterns for distinct sequence features.
+
 ![Figure 5](/images/Fig5.png)
 [Figure 5: Pattern correlations across layers, showing independence of learned patterns. Red indicates positive correlation, blue indicates negative correlation.]
 
@@ -159,7 +164,7 @@ The hierarchical variant's results highlight both the potential and current limi
 
 This characteristic of transparent failure has significant implications for AI safety. The capacity to observe pattern formation during training enables direct monitoring of what features a network is learning and how it is using them. This could be particularly valuable as models scale up in size and capability, potentially providing early warning signals of undesired learning dynamics or emergent behaviors.
 
-Several practical extensions could improve the architecture's generality. Language task performance might be enhanced through preprocessing to highlight sequential patterns, or through hybrid architectures combining hierarchical and flat pattern representations. The network's inherent transparency provides clear feedback about the effectiveness of such modifications.
+Several practical extensions could improve the architecture's generality. Language task performance might be enhanced through preprocessing to highlight sequential patterns, e.g. with Lempel-Ziv compression, or through hybrid architectures combining hierarchical and flat pattern representations. 
 
 The results suggest that the traditional trade-off between neural network performance and interpretability may not be fundamental. More importantly, they demonstrate that it's possible to design neural networks that are transparent by construction rather than requiring post-hoc interpretation methods. This architectural approach could inform the development of more controllable and verifiable AI systems, where understanding internal representations is as critical as achieving performance benchmarks.
 
