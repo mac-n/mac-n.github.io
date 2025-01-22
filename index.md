@@ -29,6 +29,7 @@ Two key features distinguish the PPN architecture from standard neural networks:
    - Routing decisions are modulated by uncertainty
    - Key intuition: if information doesn't surprise the next layer, why tell it?
 
+
 ## 2. Methods
 
 ### 2.1 Implementation Environment
@@ -84,6 +85,9 @@ Two variants of the Pattern Predictive Network were tested against a standard fe
 - ReLU activation functions
 - Standard backpropagation training
 
+
+
+
 ### 2.4 Experimental Design
 
 - Five independent trials with different random seeds
@@ -129,6 +133,16 @@ The transparency of the architecture enabled detailed analysis of pattern format
 
 Pattern usage evolved systematically during sequence processing, as shown in Figures 3 and 4. These visualizations demonstrate dynamic transitions in pattern activation corresponding to different phases of the input sequences.
 
+#### 3.2.1 Information Flow and Confidence
+
+The PPN's routing mechanism uses prediction confidence to determine information flow through the network. Each layer attempts to predict how the next layer will compress its output. This prediction generates a confidence value between 0 and 1, which determines whether information continues to the next layer or routes directly to the pre-output layer.
+
+The confidence value represents the network's certainty in its prediction of the next layer's activity. A confidence of 1 would indicate perfect prediction of the next layer's response, while 0 would indicate complete failure to predict. In practice, confidence values tend to converge around 0.5 during stable training, reflecting a balanced state where the network maintains some uncertainty about its predictions while still capturing meaningful patterns.
+
+This convergence to intermediate confidence values is a desirable property - it prevents the network from becoming either overly conservative (routing everything to output) or overly uncertain (passing everything to the next layer). The routing decisions can be observed in Figures 3 and 4, where the relationship between confidence (blue line) and information flow (red and green lines) demonstrates the dynamic balance between direct output contribution and continued processing.
+
+The magnitude of information flow through different routing paths (shown in red for "Continue Up" and green for "To Penultimate") typically shows larger variations than the confidence values, as these represent the actual amount of information being routed rather than prediction certainty. This relationship between steady confidence and varying flow magnitude indicates that the network maintains consistent prediction capability while flexibly routing different amounts of information based on input complexity.
+
 ![Figure 3](/images/Fig3.png)
 [Figure 3: Pattern usage evolution and information flow in Layer 0. Upper panel shows pattern activation over time; lower panel shows routing decisions between direct output contribution and continued processing.]
 
@@ -156,17 +170,24 @@ For language data specifically, pattern activations at word boundaries (Figure 6
 
 ## 4. Discussion
 
-The primary finding of this investigation is a neural network architecture that allows direct observation of internal representations during training while achieving competitive or superior performance on specific tasks. The pattern predictive network's transparency is not achieved through post-hoc interpretation methods, but is inherent in its architecture and observable throughout the training process.
+This work represents a fundamental advance in neural network architecture. While both predictive processing networks and post-hoc interpretation methods like SHAP and LIME have aimed to make neural networks more interpretable, the Pattern Predictive Network (PPN) takes a radically different approach. Traditional predictive networks focus on minimizing prediction error through hierarchical processing, while post-hoc methods attempt to explain decisions made by already-trained networks. The PPN, by contrast, uses inter-layer prediction as a mechanism to achieve transparency while maintaining or exceeding standard neural network performance. The key innovation is not in being a predictive network per se, but in using prediction-based routing to make information flow observable during training and inference, while simultaneously learning interpretable features through its pattern dictionaries.
 
-The base architecture demonstrated stable training behavior across multiple data types. For the Lorenz attractor system, it achieved a 76% reduction in prediction error compared to standard architectures while maintaining interpretable internal representations. Pattern projections onto the Lorenz attractor (Figures 1-2) reveal that the network develops specialized detectors for different regions of the attractor's state space, providing direct insight into its information processing. This transparency enabled verification that the network was learning meaningful features of the underlying dynamical system rather than exploiting spurious correlations.
+The results demonstrate that this novel approach succeeds in transcending the traditional trade-off between neural network performance and interpretability. The network achieves transparency through its basic architecture, developing visualizable, specialized pattern detectors that can be observed throughout training and inference. On chaotic systems like the Lorenz attractor, these transparent features actually enhanced the network's learning capabilities, suggesting that architectural transparency can be a strength rather than a limitation.
 
-The hierarchical variant's results highlight both the potential and current limitations of this approach. Its 32% reduction in prediction error on pattern memory tasks demonstrates that architectural modifications guided by transparency metrics can substantially improve performance. However, the catastrophic degradation on Lorenz data suggests an important principle: when the network fails, it fails transparently. The ability to directly observe pattern formation and usage makes failure modes immediately apparent.
 
-This characteristic of transparent failure has significant implications for AI safety. The capacity to observe pattern formation during training enables direct monitoring of what features a network is learning and how it is using them. This could be particularly valuable as models scale up in size and capability, potentially providing early warning signals of undesired learning dynamics or emergent behaviors.
+This work demonstrates that the traditional trade-off between neural network performance and interpretability may not be fundamental. The Pattern Predictive Network achieves transparency through its basic architecture, while matching or exceeding standard neural network performance on specific tasks. This represents a significant advance: rather than requiring post-hoc analysis, the network's internal representations and decision-making processes are observable by design throughout training and inference.
 
-Several practical extensions could improve the architecture's generality. Language task performance might be enhanced through preprocessing to highlight sequential patterns, e.g. with Lempel-Ziv compression, or through hybrid architectures combining hierarchical and flat pattern representations. 
+The results are particularly striking for chaotic systems like the Lorenz attractor, where the network not only achieved substantial improvements in prediction accuracy but did so by developing visualizable, specialized pattern detectors for different regions of the attractor's state space. This suggests that architectural transparency can actually enhance a network's ability to learn complex dynamical patterns rather than impeding it.
 
-The results suggest that the traditional trade-off between neural network performance and interpretability may not be fundamental. More importantly, they demonstrate that it's possible to design neural networks that are transparent by construction rather than requiring post-hoc interpretation methods. This architectural approach could inform the development of more controllable and verifiable AI systems, where understanding internal representations is as critical as achieving performance benchmarks.
+Equally informative are the architecture's limitations. The hierarchical variant demonstrates both the potential and challenges of this approach: while showing marked improvement on pattern memory tasks, it exhibited catastrophic degradation on Lorenz data. Crucially, this failure was immediately apparent through the network's transparent architecture. This characteristic of transparent failure - where the network's struggles can be directly observed and understood - represents a significant advance over traditional architectures where failure modes often remain opaque.
+
+Several promising directions emerge from these results. The performance differences between architectural variants suggest that hybrid approaches might be possible, combining the continuous pattern recognition capabilities of the base architecture with the hierarchical features that proved effective for discrete sequences. For language processing specifically, preprocessing approaches that highlight underlying sequential patterns might help bridge current performance gaps. The architecture's transparency makes such modifications particularly tractable, as their effects on pattern formation and usage can be directly observed.
+
+The potential scaling properties of this architecture present another important area for investigation. As network size increases, the pattern dictionaries and routing mechanisms should theoretically maintain their transparency, potentially enabling selective pruning and optimization based on observed pattern usage. This could lead to more efficient training and deployment of large-scale models where computational efficiency is crucial.
+
+More broadly, this work suggests a fundamental shift in how we might approach neural network design: rather than trying to peer into black boxes after the fact, we could focus on building systems that are transparent by construction while maintaining competitive performance. This capability becomes increasingly valuable as models grow in complexity, providing early warning signals of undesired learning dynamics or emergent behaviors. Such inherently transparent architectures could even enable novel forms of model interaction and composition, as their internal representations would be accessible and interpretable to each other during operation.
+
+
 
 ## References
 
