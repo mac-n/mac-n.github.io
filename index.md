@@ -133,7 +133,7 @@ The transparency of the architecture enabled detailed analysis of pattern format
 ![Figure 2](/images/Fig2.png)
 [Figure 2: Layer 1 pattern projections onto the Lorenz attractor, showing higher-level pattern specialization. Note the different activation distributions compared to Layer 0, suggesting hierarchical feature extraction.]
 
-Pattern usage evolved systematically during sequence processing, as shown in Figures 3 and 4. These visualizations demonstrate dynamic transitions in pattern activation corresponding to different phases of the input sequences.
+Pattern usage evolved systematically during sequence processing, as shown in Figures 3 and 4. These visualizations show the different patterns that are activated corresponding to different phases of the input data. 
 
 #### 3.2.1 Information Flow and Confidence
 
@@ -141,7 +141,7 @@ The PPN's routing mechanism uses prediction confidence to determine information 
 
 The confidence value represents the network's certainty in its prediction of the next layer's activity. A confidence of 1 would indicate perfect prediction of the next layer's response, while 0 would indicate complete failure to predict. In practice, confidence values tend to converge around 0.5 during stable training, reflecting a balanced state where the network maintains some uncertainty about its predictions while still capturing meaningful patterns.
 
-This convergence to intermediate confidence values is a desirable property - it prevents the network from becoming either overly conservative (routing everything to output) or overly uncertain (passing everything to the next layer). The routing decisions can be observed in Figures 3 and 4, where the relationship between confidence (blue line) and information flow (red and green lines) demonstrates the dynamic balance between direct output contribution and continued processing.
+This convergence to intermediate confidence values is a desirable property - it prevents the network from either routing everything to output or passing everything to the next layer, but makes sure both pathways are exploited. The routing decisions can be observed in Figures 3 and 4, where the relationship between confidence (blue line) and information flow (red and green lines) demonstrates the dynamic balance between direct output contribution and continued processing.
 
 The magnitude of information flow through different routing paths (shown in red for "Continue Up" and green for "To Penultimate") typically shows larger variations than the confidence values, as these represent the actual amount of information being routed rather than prediction certainty. This relationship between steady confidence and varying flow magnitude indicates that the network maintains consistent prediction capability while flexibly routing different amounts of information based on input complexity.
 
@@ -162,7 +162,7 @@ The hierarchical variant of the PPN architecture showed a dramatically different
 
 However, this architectural modification severely impacted performance on the Lorenz data (mean loss 5.725, SD = 1.118) compared to both the standard network (mean loss 0.021, SD = 0.004; t = -10.207, p < 0.00001) and the base PPN. Language modeling showed no significant improvement (mean loss 3.661, SD = 0.649 vs 3.240, SD = 0.339; t = -1.150, p = 0.283).
 
-For language data specifically, pattern activations at word boundaries (Figure 6) and character-pattern associations (Figure 7) revealed limited structural organization, suggesting the current architecture may be suboptimal for discrete symbolic sequences.
+For language data specifically, pattern activations at word boundaries (Figure 6) and character-pattern associations (Figure 7) revealed limited structural organization, suggesting the current architecture is not well suited for detecting useful patterns in this simple language prediction task. This lack of structural organisation in the network's patterns corresponds with the poor performance of the network in prediction, just as the clear structure of the patterns trained on Lorenz data in Figures 1 and 2 corresponds with increased prediction accuracy in the PPN.
 
 ![Figure 6](/images/Fig8.png)
 [Figure 6: Layer 0 pattern activation at word boundaries, showing limited differentiation between boundary and non-boundary positions.]
