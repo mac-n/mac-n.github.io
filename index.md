@@ -12,11 +12,13 @@ This paper introduces a neural network architecture that maintains interpretabil
 
 ## 1. Introduction
 
-Interpretability is a core concern in AI research. Neural networks, the basic structure underlying almost all recent AI breakthroughs, are typically considered "black boxes" in which it is difficult or impossible to understand the underlying decision-making process. As models grow larger and more capable, the complexity of understanding their decision making increases. The implications range from large-scale concerns about the safety and possible underlying intentions of the most capable AIs to concerns about life-altering administrative decisions being made in areas such as law, healthcare, and insurance without any facility for affected individuals to query the underlying reasoning. However, there has historically been a trade-off between transparency and performance in AI development.
+Interpretability is a core concern in AI research. Neural networks, the basic structure underlying almost all recent AI breakthroughs, are typically considered "black boxes" in which it is difficult or impossible to understand the underlying decision-making process. As models grow larger and more capable, the complexity of understanding their decision making increases. The implications range from large-scale concerns about the safety and possible underlying intentions of the most capable AIs to concerns about life-altering administrative decisions being made in areas such as law, healthcare, and insurance without any facility for affected individuals to query the underlying reasoning.
 
-This work presents a novel neural network architecture inspired by predictive processing theory. The Pattern Predictive Network (PPN) architecture demonstrates substantial performance improvements over standard neural net architecture across specific data types while learning interpretable features at training time and maintaining transparent information flow throughout the network.
+While several approaches to neural network interpretability exist, most rely on post-hoc interpretation tools like SHAP or LIME or dictionary learning, which attempt to explain patterns of decisions made by already-trained networks.
 
-Two key features distinguish the PPN architecture from standard neural networks:
+This work presents a novel neural network architecture that achieves transparency as an emergent property of the training process rather than through post-hoc interpretation methods. The Pattern Predictive Network (PPN) uses two key innovations working in concert: pattern dictionaries that learn interpretable features during training, and prediction-based routing that makes information flow observable throughout the network. The architecture demonstrates that transparency need not come at the cost of performance, achieving substantial improvements over standard neural networks on specific tasks while maintaining interpretable internal representations.
+
+Two key features distinguish the PPN architecture:
 
 1. **Pattern Dictionary**
    - Learns interpretable patterns at each layer
@@ -29,6 +31,7 @@ Two key features distinguish the PPN architecture from standard neural networks:
    - Routing decisions are modulated by uncertainty
    - Key intuition: if information doesn't surprise the next layer, why tell it?
 
+While other approaches have used predictive coding principles to create efficient training algorithms with local computations, the PPN architecture uniquely applies these principles to achieve interpretability during training. The pattern dictionaries provide explicit visualization of learned features, demonstrated clearly through their specialization to different regions of the Lorenz attractor's state space, while the prediction-based routing reveals how these features are used to process information. These mechanisms work together to create a network whose internal representations and routing decisions are directly observable throughout training and inference. This represents a shift from trying to interpret black-box models after the fact, to building models that are inherently interpretable without sacrificing performance.
 
 ## 2. Methods
 
@@ -84,7 +87,6 @@ Two variants of the Pattern Predictive Network were tested against a standard fe
 - Feedforward architecture with equivalent layer dimensions
 - ReLU activation functions
 - Standard backpropagation training
-
 
 
 
@@ -170,22 +172,17 @@ For language data specifically, pattern activations at word boundaries (Figure 6
 
 ## 4. Discussion
 
-This work represents a fundamental advance in neural network architecture. While both predictive processing networks and post-hoc interpretation methods like SHAP and LIME have aimed to make neural networks more interpretable, the Pattern Predictive Network (PPN) takes a radically different approach. Traditional predictive networks focus on minimizing prediction error through hierarchical processing, while post-hoc methods attempt to explain decisions made by already-trained networks. The PPN, by contrast, uses inter-layer prediction as a mechanism to achieve transparency while maintaining or exceeding standard neural network performance. The key innovation is not in being a predictive network per se, but in using prediction-based routing to make information flow observable during training and inference, while simultaneously learning interpretable features through its pattern dictionaries.
+This work demonstrates that transparent neural networks can emerge from careful architectural design rather than requiring post-hoc interpretation methods. The Pattern Predictive Network achieves transparency through two mechanisms working in concert: pattern dictionaries that learn interpretable features during training, and prediction-based routing that makes information flow observable. The network's success on the Lorenz system is particularly revealing - the pattern dictionaries develop specialized detectors for different regions of the attractor's state space, providing direct visual evidence that the network learns meaningful structure in the underlying dynamics.
 
-The results demonstrate that this novel approach succeeds in transcending the traditional trade-off between neural network performance and interpretability. The network achieves transparency through its basic architecture, developing visualizable, specialized pattern detectors that can be observed throughout training and inference. On chaotic systems like the Lorenz attractor, these transparent features actually enhanced the network's learning capabilities, suggesting that architectural transparency can be a strength rather than a limitation.
+This represents a significant advance: rather than requiring post-hoc analysis, the network's internal representations and decision-making processes are observable by design throughout training and inference.
 
-
-This work demonstrates that the traditional trade-off between neural network performance and interpretability may not be fundamental. The Pattern Predictive Network achieves transparency through its basic architecture, while matching or exceeding standard neural network performance on specific tasks. This represents a significant advance: rather than requiring post-hoc analysis, the network's internal representations and decision-making processes are observable by design throughout training and inference.
-
-The results are particularly striking for chaotic systems like the Lorenz attractor, where the network not only achieved substantial improvements in prediction accuracy but did so by developing visualizable, specialized pattern detectors for different regions of the attractor's state space. This suggests that architectural transparency can actually enhance a network's ability to learn complex dynamical patterns rather than impeding it.
-
-Equally informative are the architecture's limitations. The hierarchical variant demonstrates both the potential and challenges of this approach: while showing marked improvement on pattern memory tasks, it exhibited catastrophic degradation on Lorenz data. Crucially, this failure was immediately apparent through the network's transparent architecture. This characteristic of transparent failure - where the network's struggles can be directly observed and understood - represents a significant advance over traditional architectures where failure modes often remain opaque.
+While the base architecture showed substantial improvements on chaotic sequence prediction, the hierarchical variant demonstrated both the potential and limitations of this approach: markedly improved performance on pattern memory tasks but degraded performance on Lorenz data. Crucially, these failure modes were  apparent through the network's transparent architecture. This characteristic of transparent failure - where the network's struggles can be directly observed and understood - represents a significant advance over traditional architectures where failure modes often remain opaque.
 
 Several promising directions emerge from these results. The performance differences between architectural variants suggest that hybrid approaches might be possible, combining the continuous pattern recognition capabilities of the base architecture with the hierarchical features that proved effective for discrete sequences. For language processing specifically, preprocessing approaches that highlight underlying sequential patterns might help bridge current performance gaps. The architecture's transparency makes such modifications particularly tractable, as their effects on pattern formation and usage can be directly observed.
 
-The potential scaling properties of this architecture present another important area for investigation. As network size increases, the pattern dictionaries and routing mechanisms should theoretically maintain their transparency, potentially enabling selective pruning and optimization based on observed pattern usage. This could lead to more efficient training and deployment of large-scale models where computational efficiency is crucial.
+The potential scaling properties of this architecture present another important area for investigation. As network size increases, the pattern dictionaries and routing mechanisms should theoretically maintain their transparency, enabling selective pruning and optimization based on observed pattern usage. This could lead to more efficient training and deployment of large-scale models where computational efficiency is crucial.
 
-More broadly, this work suggests a fundamental shift in how we might approach neural network design: rather than trying to peer into black boxes after the fact, we could focus on building systems that are transparent by construction while maintaining competitive performance. This capability becomes increasingly valuable as models grow in complexity, providing early warning signals of undesired learning dynamics or emergent behaviors. Such inherently transparent architectures could even enable novel forms of model interaction and composition, as their internal representations would be accessible and interpretable to each other during operation.
+More broadly, this work suggests a fundamental shift in neural network design: from trying to peer into black boxes after the fact, to building systems that are transparent by construction. As AI models grow in complexity, the ability to directly observe pattern formation and usage during training could provide crucial insights into learning dynamics and emergent behaviors. Such inherently transparent architectures could even enable novel forms of model interaction and composition, as their internal representations would be accessible and interpretable to each other during operation.
 
 
 
@@ -193,7 +190,9 @@ More broadly, this work suggests a fundamental shift in how we might approach ne
 
 1. Python Software Foundation. Python Language Reference, version 3.10.16. Available at http://www.python.org
 2. Anthropic. Claude 3.5 Sonnet (October 2024).
-3. (references section tbd)
+3. https://www.ni-hpc.ac.uk/CaseStudies/PredictiveCodingfortrainingdeepneuralnetworks/
+4.https://transformer-circuits.pub/2024/scaling-monosemanticity/index.html
+5. (references section tbd)
 
 ## Code Availability
 Implementation code and examples are available at: https://github.com/mac-n/predictiveprocessing_nn
