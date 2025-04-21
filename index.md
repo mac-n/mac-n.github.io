@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This post introduces the Pattern Predictive Network (PPN)—a new neural architecture that offers transparency by design and significantly outperforms baselines on chaotic prediction tasks. Rather than relying on post-hoc explanation tools, the PPN's internal representations and decision-making processes are directly inspectable during training and inference. Our work shows PPNs can outperform standard models on challenging tasks (like chaotic sequence prediction), demonstrating that transparency and performance can coexist.
+This post introduces the Pattern Predictive Network (PPN)—a new neural architecture that offers transparency by design and significantly outperforms baselines on chaotic prediction tasks. Rather than relying on post-hoc explanation tools, the PPN's internal representations and decision-making processes are directly inspectable during training and inference. 
 
 ## The Transparency Problem & PPN Innovation
 
