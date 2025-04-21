@@ -16,21 +16,21 @@ Traditional neural networks are opaque black boxes, making verification difficul
 Tested on chaotic sequence prediction (Lorenz attractor), the base PPN significantly outperformed standard networks (**78% prediction error reduction**) while maintaining interpretability. The learned patterns clearly specialized to different regions of the attractor's state space, demonstrating meaningful internal representations.
 
 ![Figure 1](/images/Fig1.png)
-[Figure 1: Example showing how patterns learned by the PPN specialize to different dynamic regimes of the Lorenz attractor.]
+*Figure 1: Example showing how patterns learned by the PPN specialize to different dynamic regimes of the Lorenz attractor.*
 
 ## Observing Training Dynamics
 
 The PPN architecture allows direct observation of learning dynamics, including how pattern usage evolves and how routing strategies adapt based on predictive confidence over time.
 
 ![Figure 2](/images/Fig3.png)
-[Figure 2: Visualization of pattern usage (top) and information routing magnitudes (bottom) evolving during training]
+*Figure 2: Visualization of pattern usage (top) and information routing magnitudes (bottom) evolving during training*
 
 ## Transparent Failure: A Key Advantage
 
 Crucially, the PPN's transparency extends to its failures – a vital feature for AI safety. When the base PPN didn't outperform baselines on a simple language task, its internal patterns clearly showed *why*: a failure to learn specialized features for linguistic elements, with activation collapsing into a single pattern. This contrasts sharply with opaque models where failure modes are hard to diagnose, highlighting the PPN's value for understanding limitations and guiding improvements ("built-in debuggability").
 
 ![Figure 3](/images/Fig8.png)
-[Figure 3: Example showing lack of pattern specialization in the language task, indicating why performance was limited.]
+*Figure 3: Example showing lack of pattern specialization in the language task, indicating why performance was limited.*
 
 ## Adaptations for Language Models
 
