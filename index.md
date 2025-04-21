@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This post introduces the Pattern Predictive Network (PPN)—a new neural architecture that offers transparency by design and significantly outperforms baselines on chaotic prediction tasks. Rather than relying on post-hoc explanation tools, the PPN's internal representations and decision-making processes are directly inspectable during training and inference. 
+This post introduces the Pattern Predictive Network (PPN), a new neural architecture that offers transparency by design during training and inferene.  The PPN significantly outperforms baselines on chaotic prediction tasks. Rather than relying on post-hoc explanation tools, the PPN's internal representations and decision-making processes are directly inspectable during training and inference. 
 
 ## The Transparency Problem & PPN Innovation
 
@@ -34,7 +34,7 @@ The PPN architecture allows direct observation of learning dynamics, including h
 
 ## Transparent Failure: A Key Advantage
 
-Crucially, the PPN's transparency extends to its failures – a vital feature for AI safety. When the base PPN didn't outperform baselines on a simple language task, its internal patterns clearly showed *why*: a failure to learn specialized features for linguistic elements, with activation collapsing into a single pattern. This contrasts sharply with opaque models where failure modes are hard to diagnose, highlighting the PPN's value for understanding limitations and guiding improvements ("built-in debuggability").
+Crucially, the PPN's transparency extends to its failures – a vital feature for AI safety. When the PPN didn't outperform baselines on a simple language task, its internal patterns clearly showed *why*: a failure to learn specialized features for linguistic elements, with activation collapsing into a single pattern. This contrasts sharply with opaque models where failure modes are hard to diagnose, highlighting the PPN's value for understanding limitations and guiding improvements ("built-in debuggability").
 
 ![Figure 4](/images/Fig8.png)
 *Figure 4: Example showing lack of pattern specialization in the language task, indicating why performance was limited.*
@@ -55,7 +55,7 @@ The opacity of current frontier models hinders auditing and verification. PPN of
 Current work used relatively shallow networks. Future directions include:
 * Scaling to deeper models and higher dimensions.
 * Optimizing computational overhead.
-* Further exploring PPN-Transformer integrations for adaptation to language tasks.
+* Exploring PPN-Transformer integrations for adaptation to language tasks.
 
 If successful, this line of work could offer a new alignment path: one where high-performance models are inherently legible, auditable, and governable—by design, not by approximation.
 
