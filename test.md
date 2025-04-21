@@ -54,4 +54,4 @@ Current work used relatively shallow networks. Future directions include:
 
 PPNs demonstrate that high-performing, interpretable models are feasible. By designing for transparency, we can move beyond post-hoc methods. We aim to bring these benefits to LLMs via ongoing architectural development.
 
-*For implementation details, see the [project README]([https://github.com/mac-n/predictiveprocessing_nn/blob/main/README.md]).*
+*For implementation details, see the [project README](https://github.com/mac-n/predictiveprocessing_nn/blob/main/README.md).*
