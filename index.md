@@ -9,9 +9,9 @@ This post introduces the Pattern Predictive Network (PPN), a new neural architec
 Traditional neural networks are opaque black boxes, making verification difficult, especially for complex LLMs. There's often an assumed trade-off between performance and interpretability. PPN challenges this by building transparency in via two core components:
 
 1.  **Pattern Dictionaries:** Each layer learns to compress information into interpretable 'patterns' via attention and predicts the patterns the *next* layer will use. These learned, observable patterns are fundamental to the network's processing.
-2.  **Prediction-Error Based Routing:** Information flow is dynamically routed based on how accurately a layer anticipates how the next layer will compress its output using its patternse. Successful predictions allow information to route towards the output; uncertainty leads to deeper processing. This makes information flow explicit and measurable.
+2.  **Prediction-Error Based Routing:** Information flow is dynamically routed based on how accurately a layer anticipates how the next layer will compress its output using its patterns. Successful predictions allow information to route towards the output; uncertainty leads to deeper processing. This makes information flow explicit and measurable.
 
-This makes the PPN one of the first architectures to combine interpretable information flow, transparent internal representations acquired from unsupervised learning, and competitive performance in a single, unified system—without retrofitting transparency after the fact.
+This makes the PPN one of the first architectures to combine interpretable information flow, transparent internal representations acquired from unsupervised learning, and competitive performance in a single, unified system, without retrofitting transparency after the fact.
 
 ![Figure 1](/images/flowchart.png)
 
