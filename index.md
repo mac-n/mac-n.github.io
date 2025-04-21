@@ -25,7 +25,7 @@ Tested on chaotic sequence prediction (Lorenz attractor), the base PPN significa
 
 The PPN architecture allows direct observation of learning dynamics, including how pattern usage evolves and how routing strategies adapt based on predictive confidence over time.
 
-![Figure 2](/images/Fig3.png)
+![Figure 2](/images/layer_evolution.png)
 *Figure 2: Visualization of pattern usage (top) and information routing magnitudes (bottom) evolving during training*
 
 ## Transparent Failure: A Key Advantage
