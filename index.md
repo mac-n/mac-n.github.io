@@ -15,7 +15,8 @@ This makes the PPN one of the first architectures to combine interpretable infor
 
 ![Figure 1](/images/flowchart.png)
 
-*Figure 1: Core PPN architecture.*
+*Figure 1: Core PPN architecture. Orange arrow: routing towards output via penultimate integration layer. Blue arrows: continue through layers as in
+standard neural net. Green arrows: backpropagatio*
 
 ## Experimental Results: Lorenz Attractor
 
