@@ -22,7 +22,7 @@ Tested on chaotic sequence prediction (Lorenz attractor), the base PPN significa
 
 The PPN architecture allows direct observation of learning dynamics, including how pattern usage evolves and how routing strategies adapt based on predictive confidence over time.
 
-![Figure 2](/images/Fig2.png)
+![Figure 2](/images/Fig3.png)
 [Figure 2: Visualization of pattern usage (top) and information routing magnitudes (bottom) evolving during training]
 
 ## Transparent Failure: A Key Advantage
@@ -54,4 +54,4 @@ Current work used relatively shallow networks. Future directions include:
 
 PPNs demonstrate that high-performing, interpretable models are feasible. By designing for transparency, we can move beyond post-hoc methods. We aim to bring these benefits to LLMs via ongoing architectural development.
 
-*For implementation details, see the [project README]([link-to-your-repo-or-readme](https://github.com/mac-n/predictiveprocessing_nn/blob/main/README.md).*
+*For implementation details, see the [project README]([https://github.com/mac-n/predictiveprocessing_nn/blob/main/README.md]).*
