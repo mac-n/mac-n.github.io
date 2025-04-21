@@ -14,6 +14,7 @@ Traditional neural networks are opaque black boxes, making verification difficul
 This makes the PPN one of the first architectures to combine interpretable information flow, transparent internal representations acquired from unsupervised learning, and competitive performance in a single, unified system—without retrofitting transparency after the fact.
 
 ![Figure 1](/images/flowchart.png)
+
 *Figure 1: Core PPN architecture.*
 
 ## Experimental Results: Lorenz Attractor
