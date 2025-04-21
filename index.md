@@ -2,7 +2,7 @@
 
 ## Introduction
 
-We introduce the Pattern Predictive Network (PPN), a neural architecture designed for inherent transparency during learning. Unlike most interpretability approaches which are post-hoc, PPNs allow direct observation of their internal reasoning processes throughout training and inference. Our work shows PPNs can outperform standard models on challenging tasks (like chaotic sequence prediction), demonstrating that transparency and performance can coexist.
+This post introduces the Pattern Predictive Network (PPN)—a new neural architecture that offers transparency by design and significantly outperforms baselines on chaotic prediction tasks. Rather than relying on post-hoc explanation tools, the PPN's internal representations and decision-making processes are directly inspectable during training and inference. Our work shows PPNs can outperform standard models on challenging tasks (like chaotic sequence prediction), demonstrating that transparency and performance can coexist.
 
 ## The Transparency Problem & PPN Innovation
 
@@ -10,6 +10,9 @@ Traditional neural networks are opaque black boxes, making verification difficul
 
 1.  **Pattern Dictionaries:** Each layer learns to compress information into interpretable 'patterns' via attention and predicts the patterns the *next* layer will use. These learned, observable patterns are fundamental to the network's processing.
 2.  **Prediction-Error Based Routing:** Information flow is dynamically routed based on how accurately a layer predicts the next layer's pattern usage. Successful predictions allow information to route towards the output; uncertainty leads to deeper processing. This makes information flow explicit and measurable.
+
+This makes the PPN one of the first architectures to combine interpretable information flow, transparent internal representations acquired from unsupervised learning, and competitive performance in a single, unified system—without retrofitting transparency after the fact.
+
 
 ## Experimental Results: Lorenz Attractor
 
@@ -48,7 +51,9 @@ The opacity of current frontier models hinders auditing and verification. PPN of
 Current work used relatively shallow networks. Future directions include:
 * Scaling to deeper models and higher dimensions.
 * Optimizing computational overhead.
-* Further exploring PPN-Transformer integrations for complex tasks.
+* Further exploring PPN-Transformer integrations for adaptation to language tasks.
+
+If successful, this line of work could offer a new alignment path: one where high-performance models are inherently legible, auditable, and governable—by design, not by approximation.
 
 ## Conclusion
 
