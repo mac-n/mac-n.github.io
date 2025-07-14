@@ -52,9 +52,7 @@ The opacity of current frontier models hinders auditing and verification. PPN of
 
 ## Paradoxical Nonlinearity.
 
-Since creating the original PPN, we have created a transparent, biologically principled nonlinearity generator to substitute for the ReLU layer.
-
-  The mathematical formulation of this paradoxical transformation is:
+Since creating the original PPN, we have created a transparent, biologically principled nonlinearity generator to substitute for the ReLU layer. The mathematical formulation of this paradoxical transformation is:
 
   $$
   \begin{aligned}
